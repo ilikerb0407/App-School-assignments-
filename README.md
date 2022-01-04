@@ -59,5 +59,3 @@ upload the local project to Github
 - Week 3
 
 - Week 4 
- 
-
