@@ -3,7 +3,9 @@
 - Week 1
 
 Git& GitHub 
+
 Q2
+
 git status = 顯示repo 目前的工作狀態
 
 git add = 在編輯檔案之後要執行的功能，可以把已修改的內容新增到repo
