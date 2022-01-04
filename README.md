@@ -53,7 +53,16 @@ Q3 Please describe how to establish a GitHub repo and how to upload the local pr
 5. 新的repo 就會出現在locak Desktop
 
 upload the local project to Github
-waiting to finish
+1. cd Deasktop 
+2. mkdir newfile
+3. build LICENCE & README.md 
+4. git remote add origin [paste http]
+5. git remote -vv 
+6. git push -set-upstream origin master
+7. build new token on GitHub 
+8. enter user name and token passwords
+9. check status 
+  
 
 - Week 2 
 
