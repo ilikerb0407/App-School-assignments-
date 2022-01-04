@@ -53,6 +53,7 @@ Q3 Please describe how to establish a GitHub repo and how to upload the local pr
 5. 新的repo 就會出現在locak Desktop
 
 upload the local project to Github
+wait to finish
 
 - Week 2 
 
