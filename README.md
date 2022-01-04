@@ -23,15 +23,36 @@ git branch =
 git fork =
  
 Q3 Please describe how to establish a GitHub repo and how to upload the local projects to GitHub. Try to explain your answers with as much detail as possible.
-建立GitHub repo 
-1. 到GitHub 建立一個新的repo 
-2. 
-upload the local project to Github
-1. 先cd 到Desktop
-2. 在Desktop 建立(mkdir) 一個new file
-3. cd 到new file 
-4. git remote -vv 初始化
+建立GitHub repo 第一種[自己建立LICENSE & README.md]
+1. cd Desktop
+2. mkdir newfile
+3. cd newfile
+4. git init = create the new repo 
+5. vim LICENSE = 建立License 
+6. 輸入年份和姓名
+7. check status 會發現有untracked file git 
+8. git add newfile
+9. vim README.md 
+10. insert i = 做編輯
+11.編輯完之後,esc [:wq]
+12. 有了 LICENSE & README.md 就可以push 到自己的GitHub
+13. 到GitHub 建立一個新的repo，copy http link
+14. cd 到Desktop/newfile 
+15. git remote add origin [paste http formed by new repo] 
+16. git remote -vv [出現 fetch & push]
+17. git push —set-upstream origin master
+18. 在GitHub 上面建立一個新的token 並且copy 密碼 
+19. 輸入 user name 和 token 密碼 
+20. git status, log 檢查工作狀態
+21. 去自己的Github 重新整理檢查是否有新增repo 成功
+建立GitHub repo 第二種[clone]
+1. 去自己的GitHub 建立新的repo 並且選擇LICENSE & README.md 
+2. copy http link
+3. cd Desktop
+4. git clone [repo http link]
+5. 新的repo 就會出現在locak Desktop
 
+upload the local project to Github
 
 - Week 2 
 
