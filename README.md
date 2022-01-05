@@ -45,7 +45,9 @@ Q3 Please describe how to establish a GitHub repo and how to upload the local pr
 19. 輸入 user name 和 token 密碼 
 20. git status, log 檢查工作狀態
 21. 去自己的Github 重新整理檢查是否有新增repo 成功
+
 建立GitHub repo 第二種[clone]
+
 1. 去自己的GitHub 建立新的repo 並且選擇LICENSE & README.md 
 2. copy http link
 3. cd Desktop
