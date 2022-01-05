@@ -63,6 +63,29 @@ upload the local project to Github
 8. enter user name and token passwords
 9. check status 
   
+Function 
+Q1
+
+func greet (person: String) -> String {
+    return "Hello, \(person)"
+}
+print (greet(person:"Luke"))
+Q2
+
+func multiply(a :Int , b :Int)-> Int{
+    let b = 10
+    return multiply(a: a, b:b)
+}
+print ("a*b")
+
+Q3
+
+argument label 是在呼叫function 時候的外部參數, parameter name 是寫在function內的參數
+
+Q4
+
+第一個顯示的type是字串，第二個顯示的type是數字
+
 
 - Week 2 
 
