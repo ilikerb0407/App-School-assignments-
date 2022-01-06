@@ -88,6 +88,8 @@ Q4
 
 第一個顯示的type是字串，第二個顯示的type是數字
 
+path week1 : week1/Assignment.txt
+
 
 - Week 2 
 
