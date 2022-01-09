@@ -23,7 +23,8 @@ git branch = 講整體的開發流程分開儲存
 
 git fork = fork 可以從別人github 請求拿 repo到自己的github,做完新的branches後在pull request 回別人的github  
 
-//3 [自己建立LICENSE & README.md]
+//3 
+[自己建立LICENSE & README.md]
 
 cd Desktop --> mkdir newfile --> cd newfile --> git init = create the new repo --> vim LICENSE = 建立License --> 輸入年份和姓名 --> check status 會發現有untracked file --> git add newfile --> vim README.md --> insert i = 做編輯, 編輯完之後,esc [:wq] --> 有了 LICENSE & README.md 就可以push 到自己的GitHub
  --> 到GitHub 建立一個新的repo，copy http link --> cd 到Desktop/newfile --> git remote add origin [paste http formed by new repo] --> git remote -vv [出現 fetch & push] --> git push —set-upstream origin master --> 在GitHub 上面建立一個新的token 並且copy 密碼 --> 輸入 user name 和 token 密碼 --> git status, log 檢查工作狀態 --> 去自己的Github 重新整理檢查是否有新增repo 成功
