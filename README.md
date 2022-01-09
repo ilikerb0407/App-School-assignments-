@@ -89,14 +89,4 @@ argument label 是在呼叫function 時候的外部參數, parameter name 是寫
 
 Q4
 
-第一個顯示的type是字串，第二個顯示的type是數字
-
-path week1 : week1/Assignment.txt
-
-
-- Week 2 
-
-- Week 3
-
-- Week 4
- 
+第一個顯示的type是字串，第二個顯示 
