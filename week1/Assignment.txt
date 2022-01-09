@@ -14,9 +14,9 @@ git push = 將自己做的修改動作上傳到自己的Github
 
 git remote -v = 想要將自己桌面所建立的檔案藉由git 上傳到GitHub 之前要做的初始化動作
 
-git branch =
+git branch = 講整體的開發流程分開儲存
 
-git fork =
+git fork = fork 可以從別人github 請求拿 repo到自己的github,做完新的branches後在pull request 回別人的github  
 
 Q3 Please describe how to establish a GitHub repo and how to upload the local projects to GitHub. Try to explain your answers with as much detail as possible. 建立GitHub repo 第一種[自己建立LICENSE & README.md]
 
