@@ -17,9 +17,9 @@ git log = 可以顯示編輯repo的所有歷史紀錄
 
 git push = 將自己做的修改動作上傳到自己的Github
 
-git remote -v = 想要將自己桌面所建立的檔案藉由git 上傳到GitHub 之前要做的初始化動作
+git remote -v = 在做遠端連線的時候，可以顯示遠端repo的網址
 
-git branch = 講整體的開發流程分開儲存
+git branch = 為了在一個專案中可以同時進行不同的的修改，有了分支的概念，在初次提交的時候會有一個主要分支叫master, 可以在主要的分支上分出幾個分支做不同的事情但是卻不會影響master的內容, branch 可以讓自己知道自己目前在哪的分支上面做事情，也可以最後再合併到master上面.
 
 git fork = fork 可以從別人github 請求拿 repo到自己的github,做完新的branches後在pull request 回別人的github  
 
