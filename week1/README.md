@@ -36,6 +36,7 @@ cd Desktop --> mkdir newfile --> cd newfile --> git init = create the new repo -
 Basic 
 //1 
 let Pi = 3.1415
+必須設定為常數
 
 //2
 let x: Int = 20
@@ -121,7 +122,7 @@ print(myCountryNumber)
 //12 宣告變數為 = [:] example: varNameofInt :[Int:String] = [:]
 
 //13
-myCountryNumber.removeAll()
+myCountryNumber["GB"] = nil
 print (myCountryNumber)
 
 -------------------------------------------
@@ -133,79 +134,75 @@ for i in 3...5 {
 }
 
 //2
-var array = [5,6,7,8,9,10]
-array.reverse()
-print(array)
-for i in array {
-    if (i % 2 == 0) {
-        print (i)
+for i in 0...lottoNumbers.count-1 {
+    if (lottoNumbers[i] % 2 == 0) {
+        print (lottoNumbers[i])
     }
 }
 
 //3
-var i = 10
-var n = 5 
-while i >= n {
-    if (i%2 == 0){
-        print (i)
+var num = 0
+var endNum = lottoNumbers.count
+while num < endNum {
+    if lottoNumbers[num] % 2 == 0 {
+        print(lottoNumbers[num])
     }
-    i -= 1
+    num += 1
 }
 
 //4
-i = 10
-n = 5
+var x = 0
+var lastNum = lottoNumbers.count
 repeat {
-    if (i%2 == 0){
-        print (i)
+    if lottoNumbers[x] % 2 == 0 {
+        print (lottoNumbers[x])
+        
     }
-    i -= 1
-} while i>=n
+    x += 1
+    } while x < lastNum 
 
 //5 repeat while 會先執行程式在檢查條件, while 則是先檢查條件在執行程式
 
 //6
-var isRaining: String = "raining"
-if isRaining == "raining" { 
+var isRaining: Bool = true
+if isRaining  { 
     print("It’s raining, I don’t want to work today.")}
     else{
     print ("Although it’s sunny, I still don’t want to work today.")
 }
 
 //7
-var jobLevel = [1,2,3,4]
-for i in jobLevel {
-    if i == 1{
-        print ("Member")
-    }
-    else if i == 2 {
-        print ("Team Leader")
-    }
-    else if i == 3 {
-        print ("Manager")
-    }
-    else if i == 4 {
-        print ("director")
-    }
-    else {
-        print ("We don't have this job")
-    }
-}
+let jobLevel : [Int] = [1,2,3,4]
 
+for number in 0...jobLevel.count {
+    switch number{
+    case jobLevel[0] :
+        print ("Member") 
+    case jobLevel[1] :
+        print ("Team Leader")
+    case jobLevel[2]: 
+        print ("Manager")
+    case jobLevel[3] :
+        print ("director")
+        
+    default:
+        print ("We don't have this job")
+        
+    }
 ---------------------------------------------
 Function
 //1
 func greet (person: String) -> String {
-    return "Hello, \(person)"
+    let final = "Hello " + String(person)
+    return final
 }
-print (greet(person:"Luke"))
+greet(person: "Luke")
 
 //2
-func multiply(a :Int , b :Int)-> Int{
-    let b = 10
-    return multiply(a: a, b:b)
+func multiply(a :Int , b :Int = 10){
+    print (a*b)
 }
-print ("a*b")
+multiply(a: 2)
 
 
 //3 argument label 是在呼叫function 時候的外部參數, parameter name 是寫在function內的參數 "
