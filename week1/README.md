@@ -87,7 +87,7 @@ myFriends.append(contentsOf: ["Lan","Bomi","Kevin"])
 print (myFriends)
 
 //3
-myFriends.insert("Michael", at: myFriends.count)
+myFriends.append("Michael")
 print(myFriends)
 
 //4
@@ -101,10 +101,13 @@ for friends in myFriends {
 //6 index 5 out of range 所以會出現error
 
 //7
-print(myFriends[0])
+let firstElement = myFriends[0]
+print(firstElement)
 
 //8
-print(myFriends[myFriends.count-1])
+if let lastElement = myFriends.last{
+    print(lastElement)
+}
 
 //9
 var myCountryNumber: [String :Int] = [:]
