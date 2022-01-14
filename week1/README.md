@@ -36,7 +36,7 @@ cd Desktop --> mkdir newfile --> cd newfile --> git init = create the new repo -
 Basic 
 //1 
 let Pi = 3.1415
-必須設定為常數
+必須設定為常數, 屬於 Double 型別
 
 //2
 let x: Int = 20
@@ -137,32 +137,45 @@ for i in 3...5 {
 }
 
 //2
-for i in 0...lottoNumbers.count-1 {
-    if (lottoNumbers[i] % 2 == 0) {
-        print (lottoNumbers[i])
+let lottoNum :[Int] = lottoNumbers.reversed()
+for i in 0..<lottoNum.count{
+    print(lottoNum[i])
+}
+
+for i2 in lottoNumbers {
+    if (i2 % 2 == 0) {
+        print (i2)
     }
 }
 
 //3
-var num = 0
-var endNum = lottoNumbers.count
-while num < endNum {
-    if lottoNumbers[num] % 2 == 0 {
-        print(lottoNumbers[num])
-    }
-    num += 1
+let lottoNum1 :[Int] = lottoNumbers.reversed()
+for i in 0..<lottoNum1.count{
+    print(lottoNum1[i])
 }
 
-//4
-var x = 0
-var lastNum = lottoNumbers.count
-repeat {
-    if lottoNumbers[x] % 2 == 0 {
-        print (lottoNumbers[x])
-        
+var i = 0
+while  i < lottoNumbers.count-1  {
+    if (lottoNumbers[i]%2 == 0){
+        print(lottoNumbers[i])
     }
-    x += 1
-    } while x < lastNum 
+    i += 1
+    }
+
+//4
+let lottoNum2 :[Int] = lottoNumbers.reversed()
+for i in 0..<lottoNum2.count{
+    print(lottoNum2[i])
+}
+
+var j = 0
+repeat {
+    if (lottoNumbers[j]%2 == 0){
+        print (lottoNumbers[j])
+    }
+    j += 1
+    
+} while j<lottoNumbers.count-1
 
 //5 repeat while 會先執行程式在檢查條件, while 則是先檢查條件在執行程式
 
@@ -195,11 +208,10 @@ for number in 0...jobLevel.count {
 ---------------------------------------------
 Function
 //1
-func greet (person: String) -> String {
-    let final = "Hello " + String(person)
-    return final
+func greet (person name : String) -> String {
+    return "Hello, \(name)"
 }
-greet(person: "Luke")
+greet(person:"Luke")
 
 //2
 func multiply(a :Int , b :Int = 10){
