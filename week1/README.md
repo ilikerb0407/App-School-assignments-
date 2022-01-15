@@ -149,13 +149,17 @@ for i2 in lottoNumbers {
 }
 
 //3
+var i = 0
 let lottoNum1 :[Int] = lottoNumbers.reversed()
-for i in 0..<lottoNum1.count{
+
+while i < lottoNum1.count {
     print(lottoNum1[i])
+    i+=1 
 }
 
-var i = 0
-while  i < lottoNumbers.count-1  {
+
+i = 0 
+while  i < lottoNumbers.count  {
     if (lottoNumbers[i]%2 == 0){
         print(lottoNumbers[i])
     }
@@ -163,19 +167,22 @@ while  i < lottoNumbers.count-1  {
     }
 
 //4
-let lottoNum2 :[Int] = lottoNumbers.reversed()
-for i in 0..<lottoNum2.count{
-    print(lottoNum2[i])
-}
+i = 0 
 
-var j = 0
+let lottoNum2 :[Int] = lottoNumbers.reversed()
 repeat {
-    if (lottoNumbers[j]%2 == 0){
-        print (lottoNumbers[j])
+    print(lottoNum2[i])
+    i += 1
+} while i < lottoNum2.count
+
+i = 0
+repeat {
+    if (lottoNumbers[i] % 2 == 0) { 
+        print (lottoNumbers[i])
     }
-    j += 1
+    i += 1
     
-} while j<lottoNumbers.count-1
+} while i < lottoNumbers.count
 
 //5 repeat while 會先執行程式在檢查條件, while 則是先檢查條件在執行程式
 
