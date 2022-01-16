@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string></string>
+			<key>ModifiedRange</key>
+			<string>{58, 0}</string>
+			<key>OriginalContent</key>
+			<string>    
+    
+</string>
+			<key>OriginalRange</key>
+			<string>{58, 10}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string></string>
+			<key>ModifiedRange</key>
+			<string>{75, 0}</string>
+			<key>OriginalContent</key>
+			<string>rGame:GuessNumberGameErro</string>
+			<key>OriginalRange</key>
+			<string>{85, 25}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>Game</string>
+			<key>ModifiedRange</key>
+			<string>{76, 4}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{111, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>    func guess(number: Int) throws{
+</string>
+			<key>ModifiedRange</key>
+			<string>{109, 36}</string>
+			<key>OriginalContent</key>
+			<string>    self.init (number:Int)
+    func guess(number: Int) throws {
+</string>
+			<key>OriginalRange</key>
+			<string>{140, 64}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>        return print("Guess the right number: \(targetNumber)")
+</string>
+			<key>ModifiedRange</key>
+			<string>{250, 64}</string>
+			<key>OriginalContent</key>
+			<string>        
+        print("Guess the right number: \(targetNumber)")
+</string>
+			<key>OriginalRange</key>
+			<string>{309, 66}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>
+let guessNum = GuessNumerGame()
+
+try guessNum.guess(number: 20)
+</string>
+			<key>ModifiedRange</key>
+			<string>{322, 65}</string>
+			<key>OriginalContent</key>
+			<string>GuessNumerGame.guess(number:20)
+
+
+
+
+</string>
+			<key>OriginalRange</key>
+			<string>{383, 36}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/8E4F9AB0-1F61-415C-B1D3-2233BED2EF0B.playgroundpage/main.swift</string>
+</dict>
+</plist>

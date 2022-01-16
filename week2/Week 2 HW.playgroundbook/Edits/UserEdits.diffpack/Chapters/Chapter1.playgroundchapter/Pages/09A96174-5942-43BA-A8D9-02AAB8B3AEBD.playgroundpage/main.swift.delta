@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>//1
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 4}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>enum Gasoline: String {
+    case oil92 = "92"
+    case oil95 = "95" 
+    case oil98 = "98"
+    case diesel = "diesel"
+    
+    
+    func getPrice() -&gt; String{
+        switch Gasoline(rawValue: &lt;#String#&gt;){
+        case .oil92 :
+            return "the price is 10 dollars per liter"
+        case .oil95 :
+            return "the price is 20 dollars per liter"
+        case .oil98 :
+            return "the price is 30 dollars per liter"
+        default:
+            Void.self 
+        }
+        return getPrice()
+</string>
+			<key>ModifiedRange</key>
+			<string>{5, 513}</string>
+			<key>OriginalContent</key>
+			<string>enum Gasoline {
+    
+    func getPrice() {
+        
+        &lt;#function body#&gt;
+</string>
+			<key>OriginalRange</key>
+			<string>{1, 78}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string></string>
+			<key>ModifiedRange</key>
+			<string>{524, 0}</string>
+			<key>OriginalContent</key>
+			<string>    
+</string>
+			<key>OriginalRange</key>
+			<string>{85, 5}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>// associated value 可以讓值放在變數中，先判斷變數是哪個case, 最後在用let 取出在enum 中的值
+
+//2
+</string>
+			<key>ModifiedRange</key>
+			<string>{526, 69}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{92, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>    var name : String 
+    init (name:String){
+        self.name = name
+    }
+}
+class People {
+    var pet : Pet? = nil
+}
+let kevin = People()
+var kevin2 = People()
+
+let putin = Pet(name: "snowman")
+kevin2.pet = putin
+
+
+//
+
+func getproperty1(people: People) {
+    guard let unwrapped = people.pet else {
+        print("You didn't have a pet")
+        return
+    }
+    print(unwrapped.name)
+}
+
+getproperty1(people: kevin)
+getproperty1(people: kevin2)
+
+func getproperty2(people:People) {
+    if let unwrapped = people.pet {
+        print(unwrapped.name)
+        return 
+    }
+    print("You didn't have a pet !")
+}
+
+getproperty2(people: kevin)
+getproperty2(people: kevin2)
+</string>
+			<key>ModifiedRange</key>
+			<string>{608, 671}</string>
+			<key>OriginalContent</key>
+			<string>    let name : String? = nil
+}
+class People{
+    let pet : Pet? = nil
+}
+
+</string>
+			<key>OriginalRange</key>
+			<string>{105, 73}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/09A96174-5942-43BA-A8D9-02AAB8B3AEBD.playgroundpage/main.swift</string>
+</dict>
+</plist>
