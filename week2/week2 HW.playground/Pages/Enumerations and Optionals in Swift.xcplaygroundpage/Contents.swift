@@ -7,11 +7,9 @@ enum Gasoline: String {
     case oil95 = "95"
     case oil98 = "98"
     case diesel = "diesel"
-}
-
     
-func getPrice(rawValue : Gasoline ) -> String{
-    switch rawValue {
+    func getPrice(rawValue : Gasoline ) -> String {
+        switch rawValue {
     case .oil92 :
         return "the price is 10 dollars per liter"
     case .oil95 :
@@ -20,13 +18,21 @@ func getPrice(rawValue : Gasoline ) -> String{
         return "the price is 30 dollars per liter"
     default :
         return "I can not remember this oiltype"
-        
+        }
     }
 }
 
-let getoilprice = getPrice(rawValue: .oil92)
+let getOilprice92 = Gasoline.oil92.getPrice(rawValue: .oil92)
+print(getOilprice92)
 
-print (getoilprice)
+let getOilprice95 = Gasoline.oil95.getPrice(rawValue: .oil95)
+print(getOilprice95)
+
+let getOilprice98 = Gasoline.oil98.getPrice(rawValue: .oil98)
+print(getOilprice98)
+
+let getdiesel = Gasoline.diesel.getPrice(rawValue: .diesel)
+print(getdiesel)
 
 
 // associated value 可以讓值放在變數中，先判斷變數是哪個case, 最後在用let 取出在enum 中的值
