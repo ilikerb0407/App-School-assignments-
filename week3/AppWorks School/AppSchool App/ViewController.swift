@@ -114,7 +114,7 @@ class ViewController: UIViewController {
             
             if (accounttextfield.text == correctaccounttextfield
             ) || (passwordTextfield.text == correctpasswordtextfield) {
-                let alert = UIAlertController(title: "Success", message: "you are log in", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Success", message: "You are log in", preferredStyle: .alert)
                 
                 let action = UIAlertAction(title: "OK" , style: .default, handler: {
                     action in
