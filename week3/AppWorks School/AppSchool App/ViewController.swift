@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     var checktext = ""
     
     let correctaccounttextfield = "appworks_school@gmail.com"
-    let correctpasswordtextfield = 1234
+    let correctpasswordtextfield = "1234"
     
     
     @IBOutlet weak var segmentedControl : UISegmentedControl!
@@ -54,6 +54,10 @@ class ViewController: UIViewController {
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     private func loginchangecheckcolor (pagetype: Pagetype) {
         if pagetype ==  .login {
             checkTextfield.backgroundColor = UIColor.gray
@@ -81,6 +85,47 @@ class ViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex
            {
            case 0:
+            
+            if accounttextfield.text == "" {
+                let alert = UIAlertController(title: "Error", message: "Account should not be empty", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "OK" , style: .default, handler: {
+                    action in
+                    self.update()
+                })
+                
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            if passwordTextfield.text == "" {
+                let alert = UIAlertController(title: "Error", message: "Password should not be empty", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "OK" , style: .default, handler: {
+                    action in
+                    self.update()
+                })
+                
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            if (accounttextfield.text == correctaccounttextfield
+            ) || (passwordTextfield.text == correctpasswordtextfield) {
+                let alert = UIAlertController(title: "Success", message: "you are log in", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "OK" , style: .default, handler: {
+                    action in
+                    self.update()
+                })
+                
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+            
             if accounttextfield.text != correctaccounttextfield {
                 let alert = UIAlertController(title: "Error", message: "Login fail", preferredStyle: .alert)
                 
@@ -107,6 +152,10 @@ class ViewController: UIViewController {
                 
                 self.present(alert, animated: true, completion: nil)
             }
+            
+            
+            
+            
            case 1:
             if accounttextfield.text == "" {
                 let alert = UIAlertController(title: "Error", message: "Account should not be empty", preferredStyle: .alert)
