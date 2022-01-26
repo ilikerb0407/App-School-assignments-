@@ -1,8 +1,8 @@
 //
 //  allData.swift
-//  W4-3
+//  W4-3-1
 //
-//  Created by 莊凱富 on 2022/1/26.
+//  Created by 莊凱富 on 2022/1/27.
 //
 
 import Foundation
@@ -13,4 +13,3 @@ struct allData : Decodable {
     var stationName : String
     var stationAddress : String
 }
-
