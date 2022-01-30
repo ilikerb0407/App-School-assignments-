@@ -5,7 +5,7 @@
 //  Created by 莊凱富 on 2022/1/27.
 //
 
-import Foundation
+import UIKit
 
 struct allData : Decodable {
     //Instance method 'decode(_:from:)' requires that 'allData' conform to 'Decodable'

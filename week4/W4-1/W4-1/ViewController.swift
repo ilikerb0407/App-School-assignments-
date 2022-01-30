@@ -26,7 +26,7 @@ class tenRowViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dfRow", for: indexPath)
         let rowNumber : Int = indexPath.row
-        let row = Row (title: "This is section \(rowNumber), row \(rowNumber)")
+        let row = Row (title: "This is section 0, row \(rowNumber)")
         cell.textLabel?.text = row.title
         return cell
     }
