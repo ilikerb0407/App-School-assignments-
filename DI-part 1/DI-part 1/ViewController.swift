@@ -71,16 +71,23 @@ class ViewController: UIViewController,SelectionViewDelegate, SelectionViewDataS
         case selectedViewTop:
             return true
         case selectedViewBottom:
-            return true
+            return selectedViewBottomCanMove
         default:
             return true
         }
     }
     
+    var selectedViewBottomCanMove: Bool = true
+    
     func didSelectedButton(_ selectionView: SelectionView, didSelectAt index: Int) {
         switch selectionView {
         case selectedViewTop:
             colorViewTop.backgroundColor = colorTypesTop[index].color
+            if colorTypesTop[index].color == .yellow {
+                selectedViewBottomCanMove = false
+            } else {
+                selectedViewBottomCanMove = true
+            }
         case selectedViewBottom:
             colorViewBottom.backgroundColor = colorTypesBottom[index].color
         default:
