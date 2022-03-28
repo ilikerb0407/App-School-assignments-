@@ -24,7 +24,7 @@
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Edit"/>
                                     <connections>
-                                        <action selector="finishedit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vaz-tc-27h"/>
+                                        <action selector="finishedit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R0f-Jy-MBP"/>
                                     </connections>
                                 </button>
                                 <prototypes>
@@ -36,7 +36,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FT-Tz-T57">
-                                                    <rect key="frame" x="67" y="11" width="134" height="58"/>
+                                                    <rect key="frame" x="67" y="11" width="257" height="58"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                                                 <constraint firstItem="7FT-Tz-T57" firstAttribute="bottom" secondItem="1cy-rD-PDh" secondAttribute="bottomMargin" id="BGK-SD-PX4"/>
                                                 <constraint firstItem="7FT-Tz-T57" firstAttribute="leading" secondItem="1cy-rD-PDh" secondAttribute="leadingMargin" constant="47" id="IVu-EV-DRo"/>
                                                 <constraint firstItem="7FT-Tz-T57" firstAttribute="top" secondItem="1cy-rD-PDh" secondAttribute="topMargin" id="NmB-y8-t2p"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="7FT-Tz-T57" secondAttribute="trailing" constant="153" id="rwg-db-WSe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7FT-Tz-T57" secondAttribute="trailing" constant="30" id="uFA-7D-3bi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -59,6 +59,15 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="hAg-ae-kXN"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybQ-LA-yRg">
+                                <rect key="frame" x="282" y="307" width="112" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reload"/>
+                                <connections>
+                                    <action selector="reloadData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vgk-jm-aJU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

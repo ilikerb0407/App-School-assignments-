@@ -50,7 +50,7 @@ extension UIColor{
         let c = randomNum
         let colors = [UIColor.red, UIColor.blue, UIColor.green, UIColor.yellow, UIColor.cyan, UIColor.brown, UIColor.lightGray ]
          
-         return colors[c]
+        return colors[c]
 
     
    }}
