@@ -112,6 +112,13 @@ class SelectionView: UIView {
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
         indicatorView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         indicatorView.heightAnchor.constraint(equalToConstant: indicatorHeight).isActive = true
+        
+        indicatorViewLeftConstrain = indicatorView.leftAnchor.constraint(equalTo: leftAnchor)
+        indicatorViewLeftConstrain.isActive = true
+        
+        indicatorViewWidthConstrain = indicatorView.widthAnchor.constraint(equalToConstant: 0)
+        indicatorViewWidthConstrain.isActive = true
+        
     }
     
     func reload(){
@@ -126,8 +133,22 @@ class SelectionView: UIView {
             
             button.tag = index
             stackView.addArrangedSubview(button)
+            
+            button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
         }
         
+    }
+    
+    @objc func tapButton(btn: UIButton){
+        if delegate?.shouldSelectedButton?(self, shouldSelectAt: btn.tag) ?? true {
+            delegate?.didSelectedButton?(self, didSelectAt: btn.tag)
+            UIView.animate(withDuration: 0.4) {
+                let width = self.stackView.frame.width/CGFloat(self.dataSource?.numberOfButtons(self) ?? 0)
+                self.indicatorViewLeftConstrain.constant = width * CGFloat(btn.tag)
+                self.layoutIfNeeded()
+            }
+            
+        }
     }
 
 }
