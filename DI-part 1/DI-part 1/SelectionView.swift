@@ -9,9 +9,9 @@ import UIKit
 
 protocol SelectionViewDataSource: AnyObject {
     
-    func indicatorColor() -> UIColor
-    func numberOfButtons() -> Int
-    func selectionView() -> SelectionView.ButtonModel
+    func indicatorColor(_ selectionView: SelectionView) -> UIColor
+    func numberOfButtons(_ selectionView: SelectionView) -> Int
+    func selectionView(_ selectionView: SelectionView, at index: Int) -> SelectionView.ButtonModel
     
 }
 
@@ -38,9 +38,9 @@ extension SelectionViewDataSource {
 @objc protocol SelectionViewDelegate: AnyObject {
     
     // MARK: 1. 使用者選擇了哪一個選項。
-    @objc optional func didSelectedButton(_ selectionView: SelectionView, at index: Int)
+    @objc optional func didSelectedButton(_ selectionView: SelectionView, didSelectAt index: Int)
     // MARK: 2. 控制使用者是否可以選擇某一個選項，當不能選擇的時候，`IndicatorView` 不會移動，使用者選擇選項的 `Delegate method` 也**不會被觸發**。
-    @objc optional func shouldSelectedButton(_ selectionView: SelectionView, at index: Int) -> Bool
+    @objc optional func shouldSelectedButton(_ selectionView: SelectionView, shouldSelectAt index: Int) -> Bool
 }
 
 
@@ -65,6 +65,24 @@ class SelectionView: UIView {
     
 
     var dataSource: SelectionViewDataSource?
+    {
+        didSet
+        {
+           reload()
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        layout()
+    }
+
+    override init(frame: CGRect)
+    {
+        super.init(frame: frame)
+        layout()
+    }
     var delegate: SelectionViewDelegate?
     
     // MARK: Build UI
@@ -72,11 +90,11 @@ class SelectionView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         guard let ds = dataSource else {return}
-        indicatorViewWidthConstrain.constant = stackView.frame.width / CGFloat(ds.numberOfButtons())
+        indicatorViewWidthConstrain.constant = stackView.frame.width / CGFloat(ds.numberOfButtons(self))
     }
     
     func layout(){
-        
+
         // stackView的條件
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
@@ -86,12 +104,29 @@ class SelectionView: UIView {
         stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         stackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+
         
+        // 下面的線
         indicatorView.backgroundColor = .white
         addSubview(indicatorView)
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
-       
+        indicatorView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        indicatorView.heightAnchor.constraint(equalToConstant: indicatorHeight).isActive = true
+    }
+    
+    func reload(){
+        guard let dataS = dataSource else {return}
         
+        for index in 0..<dataS.numberOfButtons(self){
+            let button: UIButton = .init()
+            let buttonModel = dataS.selectionView(self, at: index)
+            button.setTitle(buttonModel.title, for: .normal)
+            button.setTitleColor(buttonModel.titleColor, for: .normal)
+            button.titleLabel?.font = buttonModel.titleFont
+            
+            button.tag = index
+            stackView.addArrangedSubview(button)
+        }
         
     }
 
