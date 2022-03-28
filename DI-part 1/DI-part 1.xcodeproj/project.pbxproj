@@ -14,6 +14,8 @@
 		235CEEF627F16321004E0CD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235CEEF527F16321004E0CD4 /* Assets.xcassets */; };
 		235CEEF927F16321004E0CD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235CEEF727F16321004E0CD4 /* LaunchScreen.storyboard */; };
 		235CEF0127F163AA004E0CD4 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CEF0027F163AA004E0CD4 /* SelectionView.swift */; };
+		235CEF0627F17A03004E0CD4 /* DelegatePractice.gif in Resources */ = {isa = PBXBuildFile; fileRef = 235CEF0427F17A03004E0CD4 /* DelegatePractice.gif */; };
+		235CEF0727F17A03004E0CD4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 235CEF0527F17A03004E0CD4 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		235CEEF827F16321004E0CD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		235CEEFA27F16321004E0CD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		235CEF0027F163AA004E0CD4 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		235CEF0427F17A03004E0CD4 /* DelegatePractice.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = DelegatePractice.gif; sourceTree = "<group>"; };
+		235CEF0527F17A03004E0CD4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		235CEEEB27F16320004E0CD4 /* DI-part 1 */ = {
 			isa = PBXGroup;
 			children = (
+				235CEF0227F17A03004E0CD4 /* DI Part 1 - Delegate */,
 				235CEEEC27F16320004E0CD4 /* AppDelegate.swift */,
 				235CEEEE27F16320004E0CD4 /* SceneDelegate.swift */,
 				235CEEF027F16320004E0CD4 /* ViewController.swift */,
@@ -68,6 +73,23 @@
 				235CEEFA27F16321004E0CD4 /* Info.plist */,
 			);
 			path = "DI-part 1";
+			sourceTree = "<group>";
+		};
+		235CEF0227F17A03004E0CD4 /* DI Part 1 - Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				235CEF0327F17A03004E0CD4 /* images */,
+				235CEF0527F17A03004E0CD4 /* README.md */,
+			);
+			path = "DI Part 1 - Delegate";
+			sourceTree = "<group>";
+		};
+		235CEF0327F17A03004E0CD4 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				235CEF0427F17A03004E0CD4 /* DelegatePractice.gif */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +152,8 @@
 			files = (
 				235CEEF927F16321004E0CD4 /* LaunchScreen.storyboard in Resources */,
 				235CEEF627F16321004E0CD4 /* Assets.xcassets in Resources */,
+				235CEF0727F17A03004E0CD4 /* README.md in Resources */,
+				235CEF0627F17A03004E0CD4 /* DelegatePractice.gif in Resources */,
 				235CEEF427F16320004E0CD4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
