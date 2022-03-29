@@ -11,8 +11,9 @@ class TableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        deleteBtnOutlet.addTarget(self, action: #selector(setter: deleteClosure), for: .touchUpInside)
+        
+        // 4-1 step 3
+        deleteBtnOutlet.addTarget(self, action: #selector(deleteCellWithClosure(_:)), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,21 +27,16 @@ class TableViewCell: UITableViewCell {
     
     weak var viewController : ViewController?
     
-    @IBAction func deleteCell(_ sender: Any) {
-        viewController?.deleteCell(self)
-    }
+//    @IBAction func deleteCell(_ sender: Any) {
+//        viewController?.deleteCellWithDelegate(self)
+//    }
     
-    // MARK: 4-1. Closure 
-    @objc var deleteClosure : ( ()-> Void )? {
-        didSet{
-            if deleteClosure == nil {
-                deleteBtnOutlet.isHidden = true
-            } else {
-                deleteBtnOutlet.isHidden = false
-            }
-        }
-    }
-    @objc func deleteCellClosure(_ sender: Any){
+    // MARK: 4-1. Closure
+    // 4-1 step 1
+    @objc var deleteClosure : ( ()-> () )?
+    
+    // 4-1 step 2
+    @objc func deleteCellWithClosure(_ sender: Any){
         deleteClosure!()
     }
 }
