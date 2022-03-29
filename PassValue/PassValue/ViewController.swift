@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteCellWithDelegate {
     
     
     // MARK: 1. 內容為 UITableView, 四邊貼齊 SafeArea。 (OK)
@@ -31,16 +31,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell
             
         // MARK: 4-1. Closure
-        
-        // 4-1 step 4
-        cell?.deleteClosure = {
-            self.cellNumber.remove(at: indexPath.row)
-            tableView.reloadData()
-        }
+        // 4-1 step 3
+//        cell?.deleteClosure = {
+//            self.cellNumber.remove(at: indexPath.row)
+//            tableView.reloadData()
+//        }
         // MARK: 4-2. Target-Action (Target 請設定在擁有 UITableView 的 View Controller 上)
 //        cell?.deleteBtnOutlet.addTarget(self, action: #selector(deleteCellWithTargetAction), for: .touchUpInside)
+        
         // MARK: 4-3. Delegate Pattern
-//        cell?.viewController = self
+        cell?.delegate = self
         
         cell?.label.text = cellNumber[indexPath.item]
         cell?.deleteBtnOutlet.tag = indexPath.row
@@ -69,11 +69,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        tableView.reloadData()
 //    }
     // MARK: 4-3. Delegate Pattern
-//    func deleteCellWithDelegate(_ cell: TableViewCell) {
-//        guard let indexPath = tableView.indexPath(for: cell) else { return }
-//        cellNumber.remove(at: indexPath.row)
-//        tableView.deleteRows(at: [indexPath], with: .fade)
-//    }
+    func deleteCell(_ cell: TableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        cellNumber.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
 
     
     
