@@ -96,9 +96,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: 5. Navigation Bar 上有一個 **+** 按鈕，點擊會推出第二頁。
     @IBAction func addButton(_ sender: Any) {
         
-        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NextViewController") else { return }
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NextViewController")
+        as? NextViewController
+        else { return }
         
-        
+        // ClosurePassData
+        nextVC.passToCell = { text in
+            self.cellNumber.append(text)
+            self.tableView.reloadData()
+        }
         
         
         

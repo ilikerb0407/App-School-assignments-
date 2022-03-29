@@ -28,7 +28,7 @@ class NextViewController: UIViewController {
     var defaultText = ""
     
     // Closure step 1
-    var passToCell : ( (String) -> () )?
+    var passToCell: ((String) -> ())?
     
     
     //step 2
@@ -38,10 +38,10 @@ class NextViewController: UIViewController {
     @objc func sendData () {
         
         // 如果第二頁是因為點擊第一頁 Cell 而出現，則按下按鈕會將原本 Cell 的文字修改成 TextField 的內容。
-//        guard let text = textField.text else { return }
+        guard let text = textField.text else { return }
         
         // Closure step 2
-//        passToCell!(text)
+        passToCell!(text)
         
         // Delegate: 在這頁實作一個protocol
         // step 3
