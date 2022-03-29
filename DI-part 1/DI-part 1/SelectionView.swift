@@ -128,6 +128,7 @@ class SelectionView: UIView {
         for index in 0..<dataS.numberOfButtons(self) {
             let button: UIButton = .init()
             let buttonModel = dataS.designButtonModel(self, at: index)
+            
             button.setTitle(buttonModel.title, for: .normal)
             button.setTitleColor(buttonModel.titleColor, for: .normal)
             button.titleLabel?.font = buttonModel.titleFont
