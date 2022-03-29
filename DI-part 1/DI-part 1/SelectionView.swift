@@ -11,7 +11,7 @@ protocol SelectionViewDataSource: AnyObject {
     
     func indicatorColor(_ selectionView: SelectionView) -> UIColor
     func numberOfButtons(_ selectionView: SelectionView) -> Int
-    func selectionView(_ selectionView: SelectionView, at index: Int) -> SelectionView.ButtonModel
+    func designButtonModel(_ selectionView: SelectionView, at index: Int) -> SelectionView.ButtonModel
     
     
 }
@@ -30,7 +30,7 @@ extension SelectionViewDataSource {
     }
     
     // MARK: 2. 每個選項上面的文字(不知道) 4. 選項文字的顏色，預設為白色 5. 選項文字的 Font，預設為 `UIFont.systemFont(ofSize: 18)
-    func selectionView(_ selectionView: SelectionView, at index: Int) -> SelectionView.ButtonModel {
+    func designButtonModel(_ selectionView: SelectionView, at index: Int) -> SelectionView.ButtonModel {
         return .init(title: "default\(index)", titleColor: .white, titleFont: .systemFont(ofSize: 18))
     }
 }
@@ -127,7 +127,7 @@ class SelectionView: UIView {
         
         for index in 0..<dataS.numberOfButtons(self) {
             let button: UIButton = .init()
-            let buttonModel = dataS.selectionView(self, at: index)
+            let buttonModel = dataS.designButtonModel(self, at: index)
             button.setTitle(buttonModel.title, for: .normal)
             button.setTitleColor(buttonModel.titleColor, for: .normal)
             button.titleLabel?.font = buttonModel.titleFont

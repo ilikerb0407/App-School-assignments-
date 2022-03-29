@@ -87,7 +87,7 @@ class ViewController: UIViewController,SelectionViewDelegate, SelectionViewDataS
         return .white
     }
     
-    func selectionView(_ selectionView: SelectionView, at index: Int) -> SelectionView.ButtonModel {
+    func designButtonModel(_ selectionView: SelectionView, at index: Int) -> SelectionView.ButtonModel {
         switch selectionView {
         case selectedViewTop:
             return colorTypesTop[index].bottonModel
