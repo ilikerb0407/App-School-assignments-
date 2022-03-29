@@ -13,6 +13,7 @@ protocol SelectionViewDataSource: AnyObject {
     func numberOfButtons(_ selectionView: SelectionView) -> Int
     func selectionView(_ selectionView: SelectionView, at index: Int) -> SelectionView.ButtonModel
     
+    
 }
 
 // MARK: Extension Datasource
@@ -34,11 +35,11 @@ extension SelectionViewDataSource {
     }
 }
 
-
 @objc protocol SelectionViewDelegate: AnyObject {
     
     // MARK: 1. 使用者選擇了哪一個選項。
     @objc optional func didSelectedButton(_ selectionView: SelectionView, didSelectAt index: Int)
+    
     // MARK: 2. 控制使用者是否可以選擇某一個選項，當不能選擇的時候，`IndicatorView` 不會移動，使用者選擇選項的 `Delegate method` 也**不會被觸發**。
     @objc optional func shouldSelectedButton(_ selectionView: SelectionView, shouldSelectAt index: Int) -> Bool
 }
@@ -57,18 +58,17 @@ class SelectionView: UIView {
     }
     
     var stackView: UIStackView = .init()
-    
     let indicatorView: UIView = .init()
     var indicatorViewWidthConstrain: NSLayoutConstraint = .init()
     var indicatorViewLeftConstrain: NSLayoutConstraint = .init()
     let indicatorHeight: CGFloat = 2
     
 
-    var dataSource: SelectionViewDataSource?
+    weak var dataSource: SelectionViewDataSource?
     {
         didSet
         {
-           reload()
+           drawButton()
         }
     }
     
@@ -83,15 +83,16 @@ class SelectionView: UIView {
         super.init(frame: frame)
         layout()
     }
-    var delegate: SelectionViewDelegate?
     
-    // MARK: Build UI
+    weak var delegate: SelectionViewDelegate?
     
+    // MARK: Build UI layOut + 物件之間的寬
     override func layoutSubviews() {
         super.layoutSubviews()
-        guard let ds = dataSource else {return}
+        guard let ds = dataSource else { return }
         indicatorViewWidthConstrain.constant = stackView.frame.width / CGFloat(ds.numberOfButtons(self))
     }
+
     
     func layout(){
 
@@ -121,10 +122,10 @@ class SelectionView: UIView {
         
     }
     
-    func reload(){
-        guard let dataS = dataSource else {return}
+    func drawButton(){
+        guard let dataS = dataSource else { return }
         
-        for index in 0..<dataS.numberOfButtons(self){
+        for index in 0..<dataS.numberOfButtons(self) {
             let button: UIButton = .init()
             let buttonModel = dataS.selectionView(self, at: index)
             button.setTitle(buttonModel.title, for: .normal)
@@ -139,7 +140,7 @@ class SelectionView: UIView {
         
     }
     
-    @objc func tapButton(btn: UIButton){
+    @objc func tapButton(btn: UIButton) {
         if delegate?.shouldSelectedButton?(self, shouldSelectAt: btn.tag) ?? true {
             delegate?.didSelectedButton?(self, didSelectAt: btn.tag)
             UIView.animate(withDuration: 0.4) {
@@ -147,7 +148,6 @@ class SelectionView: UIView {
                 self.indicatorViewLeftConstrain.constant = width * CGFloat(btn.tag)
                 self.layoutIfNeeded()
             }
-            
         }
     }
 

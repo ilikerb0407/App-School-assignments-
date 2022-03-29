@@ -10,11 +10,39 @@ import UIKit
 // 使用者控制SelectionView
 class ViewController: UIViewController,SelectionViewDelegate, SelectionViewDataSource {
     
+//    func textColor(_ selectionView: SelectionView) -> UIColor {
+//        switch selectionView {
+//        case selectedViewTop:
+//            return .green
+//        case selectedViewBottom:
+//            return .white
+//        default:
+//            return .cyan
+//        }
+//    }
+//    
+//    func textFont(_ selectionView: SelectionView) -> UIFont {
+//        switch selectionView {
+//        case selectedViewTop:
+//            return .boldSystemFont(ofSize: 20)
+//        case selectedViewBottom:
+//            return .italicSystemFont(ofSize: 40)
+//        default:
+//            return .systemFont(ofSize: 20)
+//        }
+//    }
+//    
+    
     // 用enum 來宣告顏色
     enum colorType: String {
+        
         case red = "Red"
         case yellow = "Yellow"
         case blue = "Blue"
+        case green = "Green"
+        case brown = "Brown"
+        case white = "White"
+        
         
         var color : UIColor {
             switch self {
@@ -24,12 +52,19 @@ class ViewController: UIViewController,SelectionViewDelegate, SelectionViewDataS
                 return .yellow
             case .blue:
                 return .blue
+            case .green:
+                return .green
+            case .brown:
+                return .brown
+            case .white:
+                return .white
             }
         }
-        private var defaultBottonColor : UIColor {.white}
-        private var defaultBottonFont : UIFont {.systemFont(ofSize: 18)}
+        var defaultBottonColor : UIColor {.white}
+        var defaultBottonFont : UIFont {.systemFont(ofSize: 18)}
         
-        var bottonModel : SelectionView.ButtonModel {
+        var bottonModel : SelectionView.ButtonModel
+        {
             return .init(title: self.rawValue, titleColor: defaultBottonColor, titleFont: defaultBottonFont)
         }
         
@@ -65,12 +100,12 @@ class ViewController: UIViewController,SelectionViewDelegate, SelectionViewDataS
     
     
     // MARK: selectionDelegate
-    
     func shouldSelectedButton(_ selectionView: SelectionView, shouldSelectAt index: Int) -> Bool {
         switch selectionView {
         case selectedViewTop:
             return true
         case selectedViewBottom:
+            //寫判斷是在didSelect裡面，確定可否移動
             return selectedViewBottomCanMove
         default:
             return true
@@ -83,13 +118,18 @@ class ViewController: UIViewController,SelectionViewDelegate, SelectionViewDataS
         switch selectionView {
         case selectedViewTop:
             colorViewTop.backgroundColor = colorTypesTop[index].color
-            if colorTypesTop[index].color == .yellow {
-                selectedViewBottomCanMove = false
-            } else {
-                selectedViewBottomCanMove = true
-            }
+            
+//             如果選到的顏色是黃色的話，下面的buttom就不可以動，寫死的方法
+//            if colorTypesTop[index].color == .yellow {
+//                selectedViewBottomCanMove = false
+//            } else {
+//                selectedViewBottomCanMove = true
+//            }
+//
+            selectedViewBottomCanMove = index == colorTypesTop.count - 1 ? false : true
         case selectedViewBottom:
             colorViewBottom.backgroundColor = colorTypesBottom[index].color
+            print("12333")
         default:
             print("123")
         }
@@ -99,11 +139,11 @@ class ViewController: UIViewController,SelectionViewDelegate, SelectionViewDataS
     // MARK: 使用者可以控制的地方
     var colorTypesTop: Array<colorType>
     {
-        return [.red, .yellow]
+        return [.red, .yellow, .blue , .green]
     }
     var colorTypesBottom: Array<colorType>
     {
-        return [.red, .yellow, .blue]
+        return [.yellow, .blue, .brown, .white]
     }
     
     let selectedViewTop: SelectionView = .init()
@@ -111,8 +151,6 @@ class ViewController: UIViewController,SelectionViewDelegate, SelectionViewDataS
     //上下的View
     let colorViewTop: UIView = .init()
     let colorViewBottom: UIView = .init()
-    
-    
     
 
     override func viewDidLoad() {
@@ -143,8 +181,6 @@ class ViewController: UIViewController,SelectionViewDelegate, SelectionViewDataS
         
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        
-        
     }
 
 
