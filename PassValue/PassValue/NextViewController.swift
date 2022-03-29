@@ -7,12 +7,18 @@
 
 import UIKit
 
+//step 1
+protocol sendToVC {
+    func updateText(_ text: String)
+    func sendtext(_ text: String, index: Int)
+}
+
 class NextViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        button.addTarget(self, action: #selector(sendData), for: .touchUpInside)
         
         setUpView()
     }
@@ -20,6 +26,33 @@ class NextViewController: UIViewController {
     var textField = UITextField()
     var button = UIButton()
     var defaultText = ""
+    
+    // Closure step 1
+    var passToCell : ( (String) -> () )?
+    
+    
+    //step 2
+    var delegate: sendToVC?
+    var index = 0
+    
+    @objc func sendData () {
+        
+        // 如果第二頁是因為點擊第一頁 Cell 而出現，則按下按鈕會將原本 Cell 的文字修改成 TextField 的內容。
+//        guard let text = textField.text else { return }
+        
+        // Closure step 2
+//        passToCell!(text)
+        
+        // Delegate: 在這頁實作一個protocol
+        // step 3
+        if defaultText == "" {
+            delegate?.updateText(textField.text!)
+        } else {
+            delegate?.sendtext(textField.text!, index: index )
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
     
     // MARK: 1. **請使用程式碼實現這一頁的 UI** (OK)
@@ -48,8 +81,4 @@ class NextViewController: UIViewController {
                                      button.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 20)])
         
     }
-    
-    
-
-
 }

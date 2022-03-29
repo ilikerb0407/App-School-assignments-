@@ -7,8 +7,22 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteCellWithDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteCellWithDelegate, sendToVC {
+    func updateText(_ text: String) {
+        cellNumber.append(text)
+    }
     
+    
+    // delegate 傳值
+    func sendtext(_ text: String, index: Int) {
+        cellNumber[index] = text
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     // MARK: 1. 內容為 UITableView, 四邊貼齊 SafeArea。 (OK)
     
@@ -40,10 +54,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        cell?.deleteBtnOutlet.addTarget(self, action: #selector(deleteCellWithTargetAction), for: .touchUpInside)
         
         // MARK: 4-3. Delegate Pattern
-        cell?.delegate = self
+//        cell?.delegate = self
         
-        cell?.label.text = cellNumber[indexPath.item]
+        cell?.label.text = cellNumber[indexPath.row]
         cell?.deleteBtnOutlet.tag = indexPath.row
+        
+        
         
         return cell ??  UITableViewCell()
     }
@@ -84,6 +100,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         
+        
+        
+        
         show(nextVC, sender: nil)
         
         
@@ -102,14 +121,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         nextVC.defaultText = cellNumber[indexPath.row]
         
+        // Closure step 3
+        nextVC.passToCell = { text in
+            self.cellNumber[indexPath.row] = text
+            tableView.reloadData()
+        }
+        
+        nextVC.delegate = self
+        
         show(nextVC, sender: nil)
-        
-        
-        
     }
-    
-    
-
-
 }
 
