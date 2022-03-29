@@ -44,17 +44,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell
             
+        cell?.deleteBtnOutlet.titleLabel?.text = "Delete"
+        cell?.deleteBtnOutlet.tintColor = .red
         // MARK: 4-1. Closure
         // 4-1 step 3
-//        cell?.deleteClosure = {
-//            self.cellNumber.remove(at: indexPath.row)
-//            tableView.reloadData()
-//        }
+        cell?.deleteClosure = {
+            self.cellNumber.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
         // MARK: 4-2. Target-Action (Target 請設定在擁有 UITableView 的 View Controller 上)
-//        cell?.deleteBtnOutlet.addTarget(self, action: #selector(deleteCellWithTargetAction), for: .touchUpInside)
+        cell?.deleteBtnOutlet.addTarget(self, action: #selector(deleteCellWithTargetAction), for: .touchUpInside)
         
         // MARK: 4-3. Delegate Pattern
-//        cell?.delegate = self
+        cell?.delegate = self
         
         cell?.label.text = cellNumber[indexPath.row]
         cell?.deleteBtnOutlet.tag = indexPath.row
@@ -80,10 +82,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: 4-1. Closure
     
     // MARK: 4-2. Target-Action (Target 請設定在擁有 UITableView 的 View Controller 上) (OK)
-//    @objc func deleteCellWithTargetAction(_ button: UIButton) {
-//        cellNumber.remove(at: button.tag)
-//        tableView.reloadData()
-//    }
+    @objc func deleteCellWithTargetAction(_ button: UIButton) {
+        cellNumber.remove(at: button.tag)
+        tableView.reloadData()
+    }
     // MARK: 4-3. Delegate Pattern
     func deleteCell(_ cell: TableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
@@ -106,13 +108,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.tableView.reloadData()
         }
         
-        // delegate 
-        nextVC.delegate = self
-        
-        
-        
+        // delegate
+//        nextVC.delegate = self
         show(nextVC, sender: nil)
-        
         
     }
     
@@ -136,7 +134,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         nextVC.delegate = self
-        
         show(nextVC, sender: nil)
     }
 }

@@ -32,10 +32,13 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var deleteBtnOutlet: UIButton!
     
+    
     @IBAction func deleteCell(_ sender: Any) {
 
-        delegate?.deleteCell(self)
+        // delegatedelete
+//        delegate?.deleteCell(self)
         
+        // closuredelete
 //        deleteCellWithClosure(self)
     }
     
