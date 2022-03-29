@@ -30,7 +30,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell
             
+        // MARK: 4-1. Closure
+        // MARK: 4-2. Target-Action (Target 請設定在擁有 UITableView 的 View Controller 上)
+        cell?.deleteBtnOutlet.addTarget(self, action: #selector(deleteCellWithTargetAction), for: .touchUpInside)
+        // MARK: 4-3. Delegate Pattern
+        cell?.viewController = self
+        
         cell?.label.text = cellNumber[indexPath.item]
+        cell?.deleteBtnOutlet.tag = indexPath.row
         
         return cell ??  UITableViewCell()
     }
@@ -48,8 +55,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     // MARK: 4. 按下 Cell 裡的右側按鈕，會將 Cell 刪除，這個功能請分別以下列三種方法實現：
-
+    // MARK: 4-1. Closure
     // MARK: 4-2. Target-Action (Target 請設定在擁有 UITableView 的 View Controller 上)
+    @objc func deleteCellWithTargetAction(_ button: UIButton) {
+        cellNumber.remove(at: button.tag)
+        tableView.reloadData()
+    }
     // MARK: 4-3. Delegate Pattern
     
     

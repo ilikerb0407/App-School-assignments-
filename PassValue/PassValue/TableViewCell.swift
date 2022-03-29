@@ -30,7 +30,7 @@ class TableViewCell: UITableViewCell {
         viewController?.deleteCell(self)
     }
     
-    // MARK: 4-1. Closure delete Cell
+    // MARK: 4-1. Closure 
     @objc var deleteClosure : ( ()-> Void )? {
         didSet{
             if deleteClosure == nil {

@@ -22,8 +22,8 @@ class NextViewController: UIViewController {
     var defaultText = ""
     
     
-    // MARK: 1. **請使用程式碼實現這一頁的 UI**
-    // MARK: 2. 內容為一個 UITextField, 一個 UIButton, Layout 需求如下：
+    // MARK: 1. **請使用程式碼實現這一頁的 UI** (OK)
+    // MARK: 2. 內容為一個 UITextField, 一個 UIButton, Layout 需求如下： (OK)
 
     func setUpView(){
         textField.text = defaultText
