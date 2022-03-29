@@ -82,6 +82,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NextViewController") else { return }
         
+        
+        
         show(nextVC, sender: nil)
         
         
@@ -94,7 +96,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NextViewController") else { return }
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NextViewController")
+        as? NextViewController
+        else { return }
+        
+        nextVC.defaultText = cellNumber[indexPath.row]
         
         show(nextVC, sender: nil)
         
