@@ -106,6 +106,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.tableView.reloadData()
         }
         
+        // delegate 
+        nextVC.delegate = self
         
         
         
