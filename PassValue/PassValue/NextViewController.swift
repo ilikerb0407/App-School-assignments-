@@ -8,9 +8,9 @@
 import UIKit
 
 //step 1
-protocol sendToVC {
+protocol BackToMainVCDelegate {
     func updateText(_ text: String)
-    func sendtext(_ text: String, index: Int)
+    func sendText(_ text: String, index: Int)
 }
 
 class NextViewController: UIViewController {
@@ -23,8 +23,8 @@ class NextViewController: UIViewController {
         setUpView()
     }
     
-    var textField = UITextField()
-    var button = UIButton()
+    private var textField = UITextField()
+    private var button = UIButton()
     var defaultText = ""
     
     // Closure step 1
@@ -32,7 +32,7 @@ class NextViewController: UIViewController {
     
     
     //step 2
-    var delegate: sendToVC?
+    var delegate: BackToMainVCDelegate?
     var index = 0
     
     @objc func sendData () {
@@ -41,26 +41,25 @@ class NextViewController: UIViewController {
         
         
         // Closure step 2
-        
-//        guard let text = textField.text else { return }
-//        passToCell!(text)
+        guard let text = textField.text else { return }
+        passToCell!(text)
         
         // Delegate: 在這頁實作一個protocol
         // step 3
         if defaultText == "" {
             delegate?.updateText(textField.text!)
         } else {
-            delegate?.sendtext(textField.text!, index: index )
+            delegate?.sendText(textField.text!, index: index )
         }
         self.navigationController?.popViewController(animated: true)
     }
     
     
     
-    // MARK: 1. **請使用程式碼實現這一頁的 UI** (OK)
-    // MARK: 2. 內容為一個 UITextField, 一個 UIButton, Layout 需求如下： (OK)
+    // MARK: 1. **請使用程式碼實現這一頁的 UI** 
+    // MARK: 2. 內容為一個 UITextField, 一個 UIButton, Layout 需求如下
 
-    func setUpView(){
+    func setUpView() {
         textField.text = defaultText
         textField.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false

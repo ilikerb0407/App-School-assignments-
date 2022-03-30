@@ -17,7 +17,7 @@ class TableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+ 
         // 4-1 step 3
 //        deleteBtnOutlet.addTarget(self, action: #selector(deleteCellWithClosure(_:)), for: .touchUpInside)
         
@@ -39,15 +39,17 @@ class TableViewCell: UITableViewCell {
 //        delegate?.deleteCell(self)
         
         // closuredelete
-//        deleteCellWithClosure(self)
+        deleteCellWithClosure(self)
+        
     }
+    
     
     // MARK: 4-1. Closure
     // 4-1 step 1
-    @objc var deleteClosure : ( ()-> () )?
+     var deleteClosure : ( () -> () )?
     
-    // 4-1 step 2
-    @objc func deleteCellWithClosure(_ sender: Any){
-        deleteClosure!()
+//    // 4-1 step 2
+     func deleteCellWithClosure(_ sender: Any) {
+        deleteClosure?()
     }
 }

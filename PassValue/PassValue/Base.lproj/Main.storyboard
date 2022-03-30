@@ -49,10 +49,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oU9-yp-Wf1">
-                                                    <rect key="frame" x="311" y="37" width="67" height="31"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oU9-yp-Wf1">
+                                                    <rect key="frame" x="298" y="37" width="80" height="31"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="button"/>
                                                     <connections>
                                                         <action selector="deleteCell:" destination="rqd-D7-Zvq" eventType="touchUpInside" id="1EE-hM-wS3"/>
                                                     </connections>
@@ -64,6 +64,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="oU9-yp-Wf1" secondAttribute="trailing" constant="16" id="PiH-jU-Xnx"/>
                                                 <constraint firstItem="ozi-1B-uaf" firstAttribute="top" secondItem="fDf-dl-ozW" secondAttribute="topMargin" constant="31" id="W8G-OA-NEE"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="oU9-yp-Wf1" secondAttribute="bottom" constant="27" id="a45-jI-EUP"/>
+                                                <constraint firstItem="oU9-yp-Wf1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ozi-1B-uaf" secondAttribute="trailing" constant="8" symbolic="YES" id="cpz-fA-vKI"/>
                                                 <constraint firstItem="ozi-1B-uaf" firstAttribute="leading" secondItem="fDf-dl-ozW" secondAttribute="leadingMargin" constant="16" id="iYI-kH-sDF"/>
                                             </constraints>
                                         </tableViewCellContentView>
