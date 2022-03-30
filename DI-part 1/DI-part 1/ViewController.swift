@@ -172,6 +172,7 @@ class ViewController: UIViewController,SelectionViewDelegate, SelectionViewDataS
         
         let stackView = UIStackView.init(arrangedSubviews: [selectedViewTop,colorViewTop,selectedViewBottom,colorViewBottom])
         view.addSubview(stackView)
+        
         let safeArea = view.safeAreaLayoutGuide
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 100 ).isActive = true
