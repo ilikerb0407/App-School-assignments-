@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         leftCircle.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.25).isActive = true
         
         leftCircle.heightAnchor.constraint(equalTo: leftCircle.widthAnchor).isActive = true
-        leftCircle.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -50).isActive = true
+        leftCircle.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -48).isActive = true
         leftCircle.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
 
 
