@@ -47,7 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // MARK: 4-1. Closure
         // 4-1 step 3 // 不用帶參數, 再進來的時候就已經知道是第幾個cell了
-        cell.deleteClosure = { 
+        cell.deleteClosure = {
             self.cellNumber.remove(at: indexPath.row)
             tableView.reloadData()
         }

@@ -15,6 +15,7 @@
 		235CEF4F27F35572004E0CD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235CEF4D27F35572004E0CD4 /* LaunchScreen.storyboard */; };
 		235CEF5A27F3557F004E0CD4 /* GCD.png in Resources */ = {isa = PBXBuildFile; fileRef = 235CEF5827F3557F004E0CD4 /* GCD.png */; };
 		235CEF5B27F3557F004E0CD4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 235CEF5927F3557F004E0CD4 /* README.md */; };
+		235CEF5D27F40F1D004E0CD4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CEF5C27F40F1D004E0CD4 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		235CEF5027F35572004E0CD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		235CEF5827F3557F004E0CD4 /* GCD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GCD.png; sourceTree = "<group>"; };
 		235CEF5927F3557F004E0CD4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		235CEF5C27F40F1D004E0CD4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				235CEF4227F35570004E0CD4 /* AppDelegate.swift */,
 				235CEF4427F35570004E0CD4 /* SceneDelegate.swift */,
 				235CEF4627F35570004E0CD4 /* ViewController.swift */,
+				235CEF5C27F40F1D004E0CD4 /* Model.swift */,
 				235CEF4827F35570004E0CD4 /* Main.storyboard */,
 				235CEF4B27F35572004E0CD4 /* Assets.xcassets */,
 				235CEF4D27F35572004E0CD4 /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 				235CEF4727F35570004E0CD4 /* ViewController.swift in Sources */,
 				235CEF4327F35570004E0CD4 /* AppDelegate.swift in Sources */,
 				235CEF4527F35570004E0CD4 /* SceneDelegate.swift in Sources */,
+				235CEF5D27F40F1D004E0CD4 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
